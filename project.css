@@ -1,0 +1,12 @@
+h1 {
+    color: yellowgreen;
+    text-shadow:1px 0px 2px black;
+    border: 5px solid yellowgreen;
+    background: linear-gradient(50deg,#ffefaf ,50%,white);;
+}
+h2 {
+    border-bottom: 5px dotted yellowgreen;
+}
+h3 {
+    border-bottom: 1px solid cyan;
+}
