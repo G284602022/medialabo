@@ -21,3 +21,14 @@ div#jikken > div {
 	padding: 10px;
 	border: 5px solid silver;
 }
+a:link {
+    color: blue;
+}
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(144, 202, 250);
+}
