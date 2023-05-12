@@ -200,4 +200,7 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
-console.log(data.results.shop.name);
+for(let a of data){
+  console.log(a);
+}
+
