@@ -200,7 +200,12 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
-for(let a of data){
-  console.log(a);
+for(let a of data.results.shop){
+  console.log(a.name);
+  console.log(a.genre.name);
+  console.log(a.address);
+  console.log(a.open);
+  console.log(a.access);
+  console.log();
 }
 
