@@ -32,12 +32,17 @@ for(let z of ns){
 }
 
 
-/* 練習4-4 箇条書き削除プログラム
-let a = document.querySelectorAll('ul#location > li');
-for(let z of a){
+// 練習4-4 箇条書き削除プログラム
+let k = document.querySelectorAll('ul#location > li');
+for(let z of k){
 	z.remove();
 }
 
 
-*/ // 練習4-5 箇条書き追加プログラム
-
+// 練習4-5 箇条書き追加プログラム
+for(let v of data){
+	let a = document.querySelector('ul#location');
+	let b = document.createElement('li');
+	b.textContent=v.name+' ... 緯度:'+v.lat+', 経度'+v.lng;
+	a.insertAdjacentElement('beforeend',b);
+}

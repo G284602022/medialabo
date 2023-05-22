@@ -201,11 +201,22 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 for(let a of data.results.shop){
-  console.log(a.name);
-  console.log(a.genre.name);
-  console.log(a.address);
-  console.log(a.open);
-  console.log(a.access);
-  console.log();
+  let h2kensaku = document.querySelector('h2');
+  let h3name = document.createElement('h3');
+  h3name.textContent=a.name;
+  h2kensaku.insertAdjacentElement('beforeend',h3name);
+  /*箇条書きにしたい
+  let ul = document.createElement('ul');
+  let li = document.createElement('li');*/
+  
+
+  /*残骸let kajo = document.createElement('li');
+  let likensaku = document.querySelector('li');
+	psakusei.insertAdjacentElement('beforeend',likensaku);
+  psakusei.textContent(a.name);
+  kekka.textContent(a.genre.name);
+  kekka.textContent(a.address);
+  kekka.textContent(a.open);
+  kekka.textContent(a.access);*/
 }
 
