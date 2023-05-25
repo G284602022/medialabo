@@ -200,15 +200,32 @@ let data = {
 };
 
 /////////// 課題3-2 ここからプログラムを書こう
+/*
+h4.textContent=a.genre.name;
+h4.textContent=a.address;
+h4.textContent=a.open;
+h4.textContent=a.access;
+*/
+//let newdata=['genre.name','address','open','access'];
 for(let a of data.results.shop){
   let h2kensaku = document.querySelector('h2');
   let h3name = document.createElement('h3');
   h3name.textContent=a.name;
   h2kensaku.insertAdjacentElement('beforeend',h3name);
-  /*箇条書きにしたい
-  let ul = document.createElement('ul');
-  let li = document.createElement('li');*/
   
+}
+  /*let ul = document.createElement('ul');
+  let h3kensaku = document.querySelector('h3');
+  h3kensaku.insertAdjacentElement('beforeend',ul);
+
+  let ulkensaku = document.querySelector('ul');
+  let li = document.createElement('li');
+  ulkensaku.insertAdjacentElement('beforeend',li);
+  let likensaku = document.querySelector('li')
+  let h4 = document.createElement('h4');
+  h4.textContent=a.genre.name;
+  likensaku.insertAdjacentElement('beforeend',h4);
+  */
 
   /*残骸let kajo = document.createElement('li');
   let likensaku = document.querySelector('li');
@@ -218,5 +235,5 @@ for(let a of data.results.shop){
   kekka.textContent(a.address);
   kekka.textContent(a.open);
   kekka.textContent(a.access);*/
-}
+
 
