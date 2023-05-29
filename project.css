@@ -10,3 +10,10 @@ h2 {
 h3 {
     border-bottom: 1px solid cyan;
 }
+p{
+    border:solid 1px;
+    padding: 1px;
+}
+div#kekka{
+    border-collapse: collapse;
+}
