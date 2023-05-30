@@ -208,49 +208,53 @@ h4.textContent=a.access;
 */
 //let newdata=['genre.name','address','open','access'];
 for(let a of data.results.shop){
-  let divkensaku = document.querySelector('div#kekka');
-  let p = document.createElement('p');
-  p.textContent=a.name;
-  divkensaku.insertAdjacentElement('beforeend',p);
+  //一旦完成系
+  // let divkensaku = document.querySelector('div#kekka');
+  // let p = document.createElement('p');
+  // p.textContent=a.name;
+  // divkensaku.insertAdjacentElement('beforeend',p);
 
-  divkensaku = document.querySelector('div#kekka');
-  p = document.createElement('p');
-  p.textContent=a.genre.name;
-  divkensaku.insertAdjacentElement('beforeend',p);
+  // divkensaku = document.querySelector('div#kekka');
+  // p = document.createElement('p');
+  // p.textContent=a.genre.name;
+  // divkensaku.insertAdjacentElement('beforeend',p);
 
-  divkensaku = document.querySelector('div#kekka');
-  p = document.createElement('p');
-  p.textContent=a.address;
-  divkensaku.insertAdjacentElement('beforeend',p);
+  // divkensaku = document.querySelector('div#kekka');
+  // p = document.createElement('p');
+  // p.textContent=a.address;
+  // divkensaku.insertAdjacentElement('beforeend',p);
 
-  divkensaku = document.querySelector('div#kekka');
-  p = document.createElement('p');
-  p.textContent=a.open;
-  divkensaku.insertAdjacentElement('beforeend',p);
+  // divkensaku = document.querySelector('div#kekka');
+  // p = document.createElement('p');
+  // p.textContent=a.open;
+  // divkensaku.insertAdjacentElement('beforeend',p);
 
-  divkensaku = document.querySelector('div#kekka');
-  p = document.createElement('p');
-  p.textContent=a.access;
-  divkensaku.insertAdjacentElement('beforeend',p);
-}
+  // divkensaku = document.querySelector('div#kekka');
+  // p = document.createElement('p');
+  // p.textContent=a.access;
+  // divkensaku.insertAdjacentElement('beforeend',p);
 
 
-  // let ul = document.createElement('ul');
-  // let h3kensaku = document.querySelector('h3');
-  // h3kensaku.insertAdjacentElement('beforeend',ul);
+  let h2kensaku = document.querySelector('h2');
+  let h4 = document.createElement('h4');
+  h4.textContent=a.name;
+  h2kensaku.insertAdjacentElement('beforeend',h4);
+  let ul = document.createElement('ul');
+  let h4kensaku = document.querySelector('h4');
+  h4kensaku.insertAdjacentElement('beforeend',ul);
 
-  // let ulkensaku = document.querySelector('ul');
+  let ulkensaku = document.querySelector('ul');
   // let h4 = document.createElement('h4');
   // h4.textContent=a.genre.name;
   // ulkensaku.insertAdjacentElement('beforeend',h4);
 
-
-  // let li = document.createElement('li');
-  // ulkensaku.insertAdjacentElement('beforeend',li);
-  // let likensaku = document.querySelector('li')
-  // let p = document.createElement('p');
-  // p.textContent=a.genre.name;
-  // likensaku.insertAdjacentElement('beforeend',p);
+  let li = document.createElement('li');
+  ulkensaku.insertAdjacentElement('beforeend',li);
+  let likensaku = document.querySelector('li')
+  let p = document.createElement('p');
+  p.textContent=a.genre.name;
+  likensaku.insertAdjacentElement('beforeend',p);
+}
   
 
   /*残骸let kajo = document.createElement('li');
