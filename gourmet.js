@@ -238,20 +238,41 @@ for(let a of data.results.shop){
   let h2kensaku = document.querySelector('h2');
   let h4 = document.createElement('h4');
   h4.textContent=a.name;
-  h2kensaku.insertAdjacentElement('beforeend',h4);
+  h2kensaku.insertAdjacentElement('afterend',h4);
   let ul = document.createElement('ul');
   let h4kensaku = document.querySelector('h4');
-  h4kensaku.insertAdjacentElement('beforeend',ul);
+  h4kensaku.insertAdjacentElement('afterend',ul);
 
   let ulkensaku = document.querySelector('ul');
-  // let h4 = document.createElement('h4');
-  // h4.textContent=a.genre.name;
-  // ulkensaku.insertAdjacentElement('beforeend',h4);
 
   let li = document.createElement('li');
   ulkensaku.insertAdjacentElement('beforeend',li);
   let likensaku = document.querySelector('li')
   let p = document.createElement('p');
+  p.textContent=a.access;
+  likensaku.insertAdjacentElement('beforeend',p);
+
+  li = document.createElement('li');
+  likensaku = document.querySelector('li')
+  likensaku.insertAdjacentElement('beforebegin',li);
+   likensaku = document.querySelector('li')
+   p = document.createElement('p');
+  p.textContent=a.open;
+  likensaku.insertAdjacentElement('beforeend',p);
+
+  li = document.createElement('li');
+  likensaku = document.querySelector('li')
+  likensaku.insertAdjacentElement('beforebegin',li);
+   likensaku = document.querySelector('li')
+   p = document.createElement('p');
+  p.textContent=a.address;
+  likensaku.insertAdjacentElement('beforeend',p);
+
+  li = document.createElement('li');
+  likensaku = document.querySelector('li')
+  likensaku.insertAdjacentElement('beforebegin',li);
+   likensaku = document.querySelector('li')
+   p = document.createElement('p');
   p.textContent=a.genre.name;
   likensaku.insertAdjacentElement('beforeend',p);
 }
