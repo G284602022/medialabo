@@ -201,13 +201,13 @@ let data = {
 
 /////////// 課題3-2 ここからプログラムを書こう
 /*
-h4.textContent=a.genre.name;
-h4.textContent=a.address;
-h4.textContent=a.open;
-h4.textContent=a.access;
+h3.textContent=a.genre.name;
+h3.textContent=a.address;
+h3.textContent=a.open;
+h3.textContent=a.access;
 */
 //let newdata=['genre.name','address','open','access'];
-for(let a of data.results.shop){
+
   //一旦完成系
   // let divkensaku = document.querySelector('div#kekka');
   // let p = document.createElement('p');
@@ -234,57 +234,163 @@ for(let a of data.results.shop){
   // p.textContent=a.access;
   // divkensaku.insertAdjacentElement('beforeend',p);
 
+// for(let a of data.results.shop){
+//   let h2kensaku = document.querySelector('h2#h2ken');
+//   let h3 = document.createElement('h3');
+//   h3.textContent=a.name;
+//   h2kensaku.insertAdjacentElement('afterend',h3);
+//   let ul = document.createElement('ul');
+//   let h3kensaku = document.querySelector('h3');
+//   h3kensaku.insertAdjacentElement('afterend',ul);
 
-  let h2kensaku = document.querySelector('h2');
-  let h4 = document.createElement('h4');
-  h4.textContent=a.name;
-  h2kensaku.insertAdjacentElement('afterend',h4);
-  let ul = document.createElement('ul');
-  let h4kensaku = document.querySelector('h4');
-  h4kensaku.insertAdjacentElement('afterend',ul);
+//   let ulkensaku = document.querySelector('ul');
 
-  let ulkensaku = document.querySelector('ul');
+//   let li = document.createElement('li');
+//   ulkensaku.insertAdjacentElement('beforeend',li);
+//   let likensaku = document.querySelector('li')
+//   let p = document.createElement('p');
+//   p.textContent=a.access;
+//   likensaku.insertAdjacentElement('beforeend',p);
 
-  let li = document.createElement('li');
-  ulkensaku.insertAdjacentElement('beforeend',li);
-  let likensaku = document.querySelector('li')
-  let p = document.createElement('p');
-  p.textContent=a.access;
-  likensaku.insertAdjacentElement('beforeend',p);
+//   li = document.createElement('li');
+//   likensaku = document.querySelector('li')
+//   likensaku.insertAdjacentElement('beforebegin',li);
+//    likensaku = document.querySelector('li')
+//    p = document.createElement('p');
+//   p.textContent=a.open;
+//   likensaku.insertAdjacentElement('beforeend',p);
 
-  li = document.createElement('li');
-  likensaku = document.querySelector('li')
-  likensaku.insertAdjacentElement('beforebegin',li);
-   likensaku = document.querySelector('li')
-   p = document.createElement('p');
-  p.textContent=a.open;
-  likensaku.insertAdjacentElement('beforeend',p);
+//   li = document.createElement('li');
+//   likensaku = document.querySelector('li')
+//   likensaku.insertAdjacentElement('beforebegin',li);
+//    likensaku = document.querySelector('li')
+//    p = document.createElement('p');
+//   p.textContent=a.address;
+//   likensaku.insertAdjacentElement('beforeend',p);
 
-  li = document.createElement('li');
-  likensaku = document.querySelector('li')
-  likensaku.insertAdjacentElement('beforebegin',li);
-   likensaku = document.querySelector('li')
-   p = document.createElement('p');
-  p.textContent=a.address;
-  likensaku.insertAdjacentElement('beforeend',p);
+//   li = document.createElement('li');
+//   likensaku = document.querySelector('li')
+//   likensaku.insertAdjacentElement('beforebegin',li);
+//    likensaku = document.querySelector('li')
+//    p = document.createElement('p');
+//   p.textContent=a.genre.name;
+//   likensaku.insertAdjacentElement('beforeend',p);
+// }
+let b = document.querySelector('#sendRequest');
+b.addEventListener('click', sendRequest);
 
-  li = document.createElement('li');
-  likensaku = document.querySelector('li')
-  likensaku.insertAdjacentElement('beforebegin',li);
-   likensaku = document.querySelector('li')
-   p = document.createElement('p');
-  p.textContent=a.genre.name;
-  likensaku.insertAdjacentElement('beforeend',p);
+function sendRequest() {
+  let s = document.querySelector('select#genid');
+    let idx = s.selectedIndex; 
+
+    let os = s.querySelectorAll('option');  
+    let o = os.item(idx);      
+    console.log('  value=' + o.getAttribute('value'));
+    let G = o.getAttribute('value')
+
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+G+'.json';
+    console.log(url);
+    axios.get(url)
+        .then(showResult)   
+        .catch(showError)   
+        .then(finish);      
 }
-  
 
-  /*残骸let kajo = document.createElement('li');
-  let likensaku = document.querySelector('li');
-	psakusei.insertAdjacentElement('beforeend',likensaku);
-  psakusei.textContent(a.name);
-  kekka.textContent(a.genre.name);
-  kekka.textContent(a.address);
-  kekka.textContent(a.open);
-  kekka.textContent(a.access);*/
+function showResult(resp) {
+    let data = resp.data;
+
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    console.log(data);
+
+    let k = document.querySelectorAll('h3');
+    for(let z of k){
+	  z.remove();
+    }
+
+    k = document.querySelectorAll('ul');
+    for(let z of k){
+	  z.remove();
+    }
+    k = document.querySelectorAll('ul > li');
+    for(let z of k){
+	  z.remove();
+    }
+    k = document.querySelectorAll('li > p');
+    for(let z of k){
+	  z.remove();
+    }
+
+    for(let a of data.results.shop){
+      let h2kensaku = document.querySelector('h2#h2ken');
+      let div = document.createElement('div');
+      h2kensaku.insertAdjacentElement('afterend',div);
+
+      let h3 = document.createElement('h3');
+      h3.textContent=a.name;
+      let divkensaku=document.querySelector('div');
+      divkensaku.insertAdjacentElement('beforeend',h3);
+
+      let ul = document.createElement('ul');
+      let h3kensaku = document.querySelector('h3');
+      h3kensaku.insertAdjacentElement('afterend',ul);
+    
+      let ulkensaku = document.querySelector('ul');
+    
+      let li = document.createElement('li');
+      ulkensaku.insertAdjacentElement('beforeend',li);
+      let likensaku = document.querySelector('li')
+      let p = document.createElement('p');
+      p.textContent=a.access;
+      likensaku.insertAdjacentElement('beforeend',p);
+    
+      li = document.createElement('li');
+      likensaku = document.querySelector('li')
+      likensaku.insertAdjacentElement('beforebegin',li);
+       likensaku = document.querySelector('li')
+       p = document.createElement('p');
+      p.textContent=a.open;
+      likensaku.insertAdjacentElement('beforeend',p);
+    
+      li = document.createElement('li');
+      likensaku = document.querySelector('li')
+      likensaku.insertAdjacentElement('beforebegin',li);
+       likensaku = document.querySelector('li')
+       p = document.createElement('p');
+      p.textContent=a.address;
+      likensaku.insertAdjacentElement('beforeend',p);
+    
+      li = document.createElement('li');
+      likensaku = document.querySelector('li')
+      likensaku.insertAdjacentElement('beforebegin',li);
+       likensaku = document.querySelector('li')
+       p = document.createElement('p');
+      p.textContent=a.genre.name;
+      likensaku.insertAdjacentElement('beforeend',p);
+    }
+    
+///ここでデータの処理を自分で考える
+}
+function showError(err) {
+    console.log(err);
+}
+function finish() {
+    console.log('Ajax 通信が終わりました');
+}
+//
+let c = document.querySelector('button#sendRequest');
+c.addEventListener('click', showSelectResult);
+
+function showSelectResult() {
+    let s = document.querySelector('select#genid');
+    let idx = s.selectedIndex; 
+
+    let os = s.querySelectorAll('option');  
+    let o = os.item(idx);      
+    console.log('  value=' + o.getAttribute('value')); 
+
+}
 
 

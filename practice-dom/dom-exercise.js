@@ -33,7 +33,15 @@ for(let z of ns){
 
 
 // 練習4-4 箇条書き削除プログラム
-let k = document.querySelectorAll('ul#location > li');
+let k = document.querySelectorAll('h4');
+for(let z of k){
+	z.remove();
+}
+k = document.querySelectorAll('h4');
+for(let z of k){
+	z.remove();
+}
+k = document.querySelectorAll('h4');
 for(let z of k){
 	z.remove();
 }
